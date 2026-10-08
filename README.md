@@ -40,7 +40,7 @@ Put the supplied hackathon files in `data/`. It is gitignored and confidential: 
 Skills and MCP servers live in `.agents/`. Link them for the agent you use:
 
 ```bash
-scripts/setup-agent.sh claude   # or copilot | cursor | codex | opencode | gemini | antigravity | all
+scripts/setup-agent.sh claude   # or copilot | codex | all
 ```
 
 On a fresh laptop you can instead let the agent do the whole setup: open it in the cloned repo and paste
@@ -72,7 +72,6 @@ Set up this machine for this repo by following docs/setup.md. Report only failur
 | Backend          | Next.js Server Actions / Route Handlers                                   |
 | Database         | PostgreSQL + Drizzle ORM (RDS optional; Docker Compose locally)           |
 | Validation       | Zod                                                                       |
-| Auth             | Better Auth (optional, off by default)                                    |
 | AI               | Vercel AI SDK, provider-switchable via env (OpenRouter / OpenAI-compatible) |
 | Vector search    | pgvector (optional)                                                       |
 | Hosting          | AWS EC2 + Docker (Vercel + Supabase for quick previews only)              |
@@ -90,7 +89,6 @@ Defined in `.env.example`, validated in `src/env.ts` (missing values never crash
 | `OPENROUTER_API_KEY`                      | Key for `openrouter`                                            |
 | `AI_API_KEY`, `AI_BASE_URL`               | Key and endpoint for `openai-compatible`                        |
 | `AI_EMBEDDING_MODEL`                      | Only for vector search                                          |
-| `ENABLE_AUTH`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL` | Optional auth, see [`src/modules/auth/README.md`](src/modules/auth/README.md) |
 | `POSTGRES_PASSWORD`                       | Production compose only                                         |
 
 Never commit `.env`.
@@ -104,7 +102,6 @@ Never commit `.env`.
 | `pnpm db:push`                               | Sync Drizzle schema to the database          |
 | `pnpm db:generate` / `db:migrate`            | Generate and apply SQL migrations            |
 | `pnpm db:studio`                             | Drizzle Studio GUI                           |
-| `pnpm auth:generate`                         | Regenerate auth schema after changing plugins |
 
 ## Project structure
 
@@ -135,8 +132,6 @@ Features are vertical slices in `src/modules/` so three people can work in paral
 ```ts
 db.select().from(docs).orderBy(cosineDistance(docs.embedding, await embedText(q))).limit(5);
 ```
-
-**Auth (optional).** Self-contained Better Auth module, off by default. See [`src/modules/auth/README.md`](src/modules/auth/README.md).
 
 ## Workflow
 

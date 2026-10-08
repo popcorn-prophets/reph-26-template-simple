@@ -19,4 +19,4 @@ src/app/<route>/page.tsx   thin: import from the module and render
 - AI output is Zod-validated and shown with a rationale and human accept/reject. Disclose each new model/mock in `DISCLOSURE.md`.
 - Schema workflow: `pnpm db:push` (everyone's tables). Coordinate before renaming/dropping columns on a shared DB.
 
-`demo` is an example slice (AI summary with human review). Replace or delete it once the real flow exists. `auth` is opt-in, see its README.
+`demo` is an example slice (AI summary with human review). Replace or delete it once the real flow exists.

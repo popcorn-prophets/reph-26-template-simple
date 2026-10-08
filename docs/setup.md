@@ -24,7 +24,7 @@ Skip anything already installed (check versions first). Use whatever the OS prov
 2. **Auth** (tell the user to run these, they are interactive; in Claude Code via `! <cmd>`):
    - `gh auth login`, then `git config --global user.name/user.email`
    - `aws login` (see `signing-in-to-aws` skill) or the event-provided SSO/credentials
-3. **Agent wiring**: `scripts/setup-agent.sh <claude|copilot|cursor|codex|opencode|gemini|antigravity>` for the agent in use.
+3. **Agent wiring**: `scripts/setup-agent.sh <claude|copilot|codex>` for the agent in use.
 4. **AWS MCP / skills**: follow https://raw.githubusercontent.com/aws/agent-toolkit-for-aws/refs/heads/main/setup-instructions/setup.md
 5. **Project**:
    ```bash

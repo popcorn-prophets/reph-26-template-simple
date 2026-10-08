@@ -25,7 +25,7 @@ Before deploying: confirm the event environment allows it. Never deploy `data/` 
 ## Deploy
 
 ```bash
-cp .env.example .env        # fill AI keys, POSTGRES_PASSWORD, BETTER_AUTH_*
+cp .env.example .env        # fill AI keys, POSTGRES_PASSWORD
 scripts/deploy.sh ec2-user@<elastic-ip> ~/.ssh/key.pem
 ```
 
@@ -35,4 +35,3 @@ It rsyncs the source and `.env`, starts the db, pushes the Drizzle schema, then 
 
 - Logs: `ssh ... "cd app && docker compose -f docker-compose.prod.yml logs -f app"`.
 - HTTPS (optional): put Caddy in front, or use an ALB + ACM.
-- Set `BETTER_AUTH_URL` to the public URL if auth is used.
