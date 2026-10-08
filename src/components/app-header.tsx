@@ -17,7 +17,6 @@ export function AppHeader() {
             </Link>
           ))}
         </nav>
-        {/* Optional auth: <UserMenu /> from @/modules/auth/components/user-menu */}
       </div>
     </header>
   );

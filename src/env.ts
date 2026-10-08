@@ -9,8 +9,6 @@ const schema = z.object({
   AI_BASE_URL: z.string().optional(),
   OPENROUTER_API_KEY: z.string().optional(),
   AI_API_KEY: z.string().optional(),
-  BETTER_AUTH_SECRET: z.string().optional(),
-  BETTER_AUTH_URL: z.string().optional(),
 });
 
 export const env = schema.parse(process.env);
